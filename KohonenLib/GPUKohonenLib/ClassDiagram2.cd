@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GPUKohonenLib.KohonenMap" Collapsed="true">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAjEABCAUAwIkVBAYAEIAIAAAJAGCCBEACCAWABAAg=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GPUKohonenLib.CPUKohonenCore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CPUKohonenCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GPUKohonenLib.MSRAcceleratorKohonenCore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GPUKohonenCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GPUKohonenLib.KohonenSOM">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAABAAAAgAAAAAAAAAAAAAAAgAAAAAAACAAAAAAA=</HashCode>
+      <FileName>KohonenSOM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GPUKohonenLib.SquareShape">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SquareShape.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GPUKohonenLib.IDataSource" Collapsed="true">
+    <Position X="1.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDataSource.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

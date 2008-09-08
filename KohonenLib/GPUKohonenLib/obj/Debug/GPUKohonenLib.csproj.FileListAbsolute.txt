@@ -1,0 +1,6 @@
+C:\kohonen\GPUKohonenLib\obj\Debug\ResolveAssemblyReference.cache
+C:\kohonen\GPUKohonenLib\bin\Debug\GPUKohonenLib.dll
+C:\kohonen\GPUKohonenLib\bin\Debug\GPUKohonenLib.pdb
+C:\kohonen\GPUKohonenLib\bin\Debug\Accelerator.dll
+C:\kohonen\GPUKohonenLib\obj\Debug\GPUKohonenLib.dll
+C:\kohonen\GPUKohonenLib\obj\Debug\GPUKohonenLib.pdb
