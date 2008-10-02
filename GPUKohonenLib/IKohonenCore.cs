@@ -11,7 +11,7 @@ namespace GPUKohonenLib
 
         public IKohonenCore() { }
         public abstract void Init(KohonenSOM parent);
-        public abstract void FindBMU( float[] Pattern );
+        public abstract void FindBMU();
         public abstract void DoEpoch(float t, float round_t);
     }
 }

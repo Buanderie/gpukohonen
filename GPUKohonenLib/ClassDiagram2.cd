@@ -20,7 +20,7 @@
   <Class Name="GPUKohonenLib.MSRAcceleratorKohonenCore" BaseTypeListCollapsed="true">
     <Position X="3.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAACAACAAAAAAAAAAAAAAACAQAAAAA=</HashCode>
       <FileName>MSRAcceleratorKohonenCore.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -62,7 +62,7 @@
   <Class Name="GPUKohonenLib.IDataSource" Collapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IDataSource.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -82,18 +82,8 @@
   </Class>
   <Class Name="GPUKohonenLib.TimeSerieDataSource">
     <Position X="9.25" Y="4.25" Width="1.5" />
-    <InheritanceLine Type="GPUKohonenLib.IDataSource" ManuallyRouted="true">
-      <Path>
-        <Point X="10" Y="1.062" />
-        <Point X="10" Y="1.428" />
-        <Point X="8.939" Y="1.428" />
-        <Point X="8.939" Y="4.127" />
-        <Point X="10" Y="4.127" />
-        <Point X="10" Y="4.25" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAAAAAACQAAAAAAAAAAAA=</HashCode>
       <FileName>TimeSerieDataSource.cs</FileName>
     </TypeIdentifier>
   </Class>

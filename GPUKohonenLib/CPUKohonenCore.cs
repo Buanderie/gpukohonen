@@ -21,11 +21,12 @@ namespace GPUKohonenLib
             m_BMUWeight = new float[this.m_Parent.DataSource.GetPatternLength()];
         }
 
-        public override void FindBMU( float[] Pattern )
+        public override void FindBMU()
         {
             //Useful locals
             int alen = this.m_Parent.NeuronMapShape.GetFlatLength();
-            int m_PatternLength = Pattern.Length;
+            int m_PatternLength = m_CurrentPattern.Length;
+            float[] Pattern = m_CurrentPattern;
 
             //Create distances array
             float[] distances = new float[alen];
@@ -55,9 +56,11 @@ namespace GPUKohonenLib
         {
             int alen = this.m_Parent.NeuronMapShape.GetFlatLength();
 
-            //First, select Pattern and find BMU
-            m_CurrentPattern = m_Parent.DataSource.GetPattern(0);
-            this.FindBMU( m_CurrentPattern );
+            //For all patterns
+            for (int a = 0; a < m_Parent.DataSource.PatternCount; ++a)
+            {
+                m_CurrentPattern = m_Parent.DataSource.GetPattern(a);
+                this.FindBMU();
 
                 //For each unit
                 for (int i = 0; i < alen; ++i)
@@ -70,6 +73,7 @@ namespace GPUKohonenLib
                         this.m_Parent.NeuronMap[i, k] = this.m_Parent.NeuronMap[i, k] + (float)Math.Exp(-distsq / (2 * Math.Pow(this.Neighborhood(t, round_t), 2))) * this.LearningRate(t, round_t) * (m_CurrentPattern[k] - this.m_Parent.NeuronMap[i, k]);
                     }
                 }
+            }
         }
 
         private float LearningRate(float t, float round_t)

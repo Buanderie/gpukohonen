@@ -9,7 +9,7 @@ namespace GPUKohonenLib
     {
         public enum KOHONEN_SOM_MAPINIT_TYPE { MAPINIT_RANDOM, MAPINIT_GRADIENT };
 
-        public IKohonenCore m_Core;
+        private IKohonenCore m_Core;
         private IMapShape m_MapShape;
         private IDataSource m_DataSource;
         private float[,] m_NeuronMap;
@@ -28,7 +28,6 @@ namespace GPUKohonenLib
             m_Core = Core;
             m_MapShape = MapShape;
             m_DataSource = DataSource;
-            m_Core.Init(this);
         }
 
         public KOHONEN_SOM_MAPINIT_TYPE NeuronMapInitType
@@ -129,6 +128,9 @@ namespace GPUKohonenLib
 
             //Initialize the output neuron map to some values
             InitNeuronMap(m_NeuronMapInitType, m_NeuronMapInitMin, m_NeuronMapInitMax);
+
+            //Init the Core
+            m_Core.Init(this);
         }
 
         public System.Drawing.Bitmap ToWeightBitmap()

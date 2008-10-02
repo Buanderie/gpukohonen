@@ -30,19 +30,12 @@ namespace GPUKohonenTest
             mapsize[0] = 50;
             mapsize[1] = 50;
             IMapShape ms = new SquareShape(mapsize);
-            IKohonenCore kc = new CPUKohonenCore();
+            IKohonenCore kc = new MSRAcceleratorKohonenCore();
             KohonenSOM som = new KohonenSOM(kc, ms, ds);
             som.Init();
             som.DoRound(300);
             pictureBox1.Image = som.ToWeightBitmap();
             //
-
-            float[] pol = new float[500];
-            lol_gpu = new KohonenMap(50, 50, 500, KohonenMap.GPUK_COMPUTATION_TYPE.GPU_COMPUTATION_TYPE);
-            lol_cpu = new KohonenMap(50, 50, 500, KohonenMap.GPUK_COMPUTATION_TYPE.CPU_COMPUTATION_TYPE);
-
-            lol_gpu.SetCurrentPattern(pol);
-            lol_cpu.SetCurrentPattern(pol);
         }
 
         private void button1_Click(object sender, EventArgs e)

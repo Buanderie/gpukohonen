@@ -33,11 +33,7 @@
   <ItemGroup>
     <Reference Include="Accelerator, Version=1.0.1.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files\Microsoft\Accelerator\bin\Accelerator.dll</HintPath>
-    </Reference>
-    <Reference Include="CUDA.NET, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Documents and Settings\Administrator\Desktop\cuda.net1.1_win\lib\CUDA.NET.dll</HintPath>
+      <HintPath>..\..\Program Files\Microsoft\Accelerator\bin\Accelerator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

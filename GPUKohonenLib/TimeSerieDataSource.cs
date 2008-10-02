@@ -55,5 +55,10 @@ namespace GPUKohonenLib
         {
             return m_chunksize;
         }
+
+        public override int GetPatternCount()
+        {
+            return m_patterns.Count;
+        }
     }
 }

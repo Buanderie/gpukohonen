@@ -48,5 +48,10 @@ namespace GPUKohonenLib
         {
             return 3;
         }
+
+        public override int GetPatternCount()
+        {
+            return this.m_Colors.Count;
+        }
     }
 }
