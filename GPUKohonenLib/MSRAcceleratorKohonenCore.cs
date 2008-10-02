@@ -54,13 +54,16 @@ namespace GPUKohonenLib
             FloatParallelArray inputnorm = ParallelArrays.Divide(m_GPUInput, inputlength);
             //inputnorm = ParallelArrays.Transpose(inputnorm, 1, 0);
 
+
             FloatParallelArray pacc = ParallelArrays.InnerProduct(inputnorm, weightnorm);
             FloatParallelArray bmxval = ParallelArrays.MaxVal(pacc, 1);
-            bmxval = ParallelArrays.AddDimension(bmxval, 1);
-            bmxval = ParallelArrays.Stretch(bmxval, 1, 2500);
+            ParallelArrays.ToArray(bmxval, out test);
 
-            //ParallelArrays.ToArray(pwinner, out test2d);
-            ParallelArrays.ToArray(bmxval, out test2d);
+            //Replication bug here...
+            bmxval = ParallelArrays.AddDimension(bmxval, 1);
+            bmxval = ParallelArrays.Stretch(bmxval, 1, 10);
+            //Send mail
+
             int popopo = 34;
 
         }
