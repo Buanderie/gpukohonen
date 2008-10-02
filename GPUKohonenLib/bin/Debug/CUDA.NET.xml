@@ -1,0 +1,1271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CUDA.NET</name>
+    </assembly>
+    <members>
+        <member name="T:GASS.CUDA.CUDAException">
+            <summary>
+            Represents an exception that occured in the driver.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDAException.CUDAError">
+            <summary>
+            Gets the error code returned by CUDA driver that caused the exception.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.Device">
+            <summary>
+            <code>Device</code> represents a single device that is recognized by 
+            CUDA in the system.
+            It provides all details about the device that can be obtained from the 
+            CUDA driver.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.Device.ordinal">
+            <summary>
+            Holds the ordinal value of the device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.Device.name">
+            <summary>
+            Holds the full name of the device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.Device.computeCapability">
+            <summary>
+            Holds the compute capability as a version of the device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.Device.handle">
+            <summary>
+            Holds a handle to the device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.Device.properties">
+            <summary>
+            Contains further details about the device capabilities.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.Device.totalMemory">
+            <summary>
+            Holds the total memory available on the device.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.Device.Ordinal">
+            <summary>
+            Gets the ordinal of the device as recognized by CUDA.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.Device.Name">
+            <summary>
+            Gets the full name of the device.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.Device.ComputeCapability">
+            <summary>
+            Gets the compute capability of the device as a version.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.Device.Handle">
+            <summary>
+            Gets a handle to the device to be used through other CUDA functions.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.Device.Properties">
+            <summary>
+            Gets more advanced properties of the device.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.Device.TotalMemory">
+            <summary>
+            Gets the total memory available on the device.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.FFT.CUFFTDirection">
+            <summary>
+            // CUFFT transform directions 
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.BLAS.CUBLASException">
+            <summary>
+            Represents an exception that occured in the BLAS driver.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.BLAS.CUBLASException.CUBLASError">
+            <summary>
+            Gets the error code returned by CUFFT driver that caused the exception.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.BLAS.CUBLAS">
+            <summary>
+            <code>CUBLAS</code> provides an object oriented model for accessing
+            BLAS functionality of CUDA, using <code>CUDADriver</code> to communicate
+            with CUDA.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.#ctor(GASS.CUDA.CUDA)">
+            <summary>
+            Creates a new instance of <code>CUBLAS</code> class.
+            </summary>
+            <param name="cuda">CUDA object to use for memory allocation and other operations.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.Init">
+            <summary>
+            Initializes the CUBLAS driver.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.Shutdown">
+            <summary>
+            Shuts down and releases all resources used by CUBLAS driver.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.GetError">
+            <summary>
+            Returns the last error or result returned by calling one of CUBLAS
+            driver functions.
+            </summary>
+            <returns>Last error or result returned by calling one of CUBLAS
+            driver functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.Allocate(System.Int32,System.Int32)">
+            <summary>
+            Allocates memory with the specified amount.
+            </summary>
+            <param name="numOfElements">Number of elements to allocate memory for.</param>
+            <param name="elementSize">Size of each element to allocate memory for.</param>
+            <returns>Pointer to device memory that can be used with other CUBLAS 
+            functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.Allocate``1(``0[])">
+            <summary>
+            Allocates device memory for the specified one dimensional array.
+            </summary>
+            <typeparam name="T">Type of the array element, must be one of the 
+            supported CUDA primitives.</typeparam>
+            <param name="array">Array object to allocate memory for.</param>
+            <returns>Pointer to device memory that can be used with other CUBLAS 
+            functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.Allocate``1(``0[0:,0:])">
+            <summary>
+            Allocates device memory for the specified two dimensional array.
+            </summary>
+            <typeparam name="T">Type of the array element, must be one of the 
+            supported CUDA primitives.</typeparam>
+            <param name="array">Array object to allocate memory for.</param>
+            <returns>Pointer to device memory that can be used with other CUBLAS 
+            functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.Free(GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Frees a previously allocated device memory.
+            </summary>
+            <param name="ptr">Pointer to device memory.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.SetVector``1(``0[],GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Sets the vector in device memory given by <code>ptr</code> to the 
+            values of the array.
+            </summary>
+            <typeparam name="T">Type of array and destination vector, must be 
+            one of CUDA supported primitives.</typeparam>
+            <param name="data">Array to copy to device memory.</param>
+            <param name="ptr">Vector in device memory to set.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.SetVector``1(``0[],System.Int32,GASS.CUDA.Types.CUdeviceptr,System.Int32)">
+            <summary>
+            Sets the vector in device memory given by <code>ptr</code> to the 
+            values of the array.
+            </summary>
+            <typeparam name="T">Type of array and destination vector, must be 
+            one of CUDA supported primitives.</typeparam>
+            <param name="data">Array to copy to device memory.</param>
+            <param name="incx">Offset from the begining of the array to start copy from.</param>
+            <param name="ptr">Vector in device memory to set.</param>
+            <param name="incy">Offset from the begining of the device vector to start copy to.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.GetVector``1(GASS.CUDA.Types.CUdeviceptr,``0[])">
+            <summary>
+            Copies data from the device vector into the specified array.
+            </summary>
+            <typeparam name="T">Type of array to copy data to, must be 
+            one of CUDA supported primitives.</typeparam>
+            <param name="ptr">Vector in device memory.</param>
+            <param name="data">Array to copy data to.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.GetVector``1(GASS.CUDA.Types.CUdeviceptr,System.Int32,``0[],System.Int32)">
+            <summary>
+            Copies data from device vector to the the array.
+            </summary>
+            <typeparam name="T">Type of array and source vector, must be 
+            one of CUDA supported primitives.</typeparam>
+            <param name="ptr">Vector in device memory to copy from.</param>
+            <param name="incx">Offset from the begining of the vector to start copy from.</param>
+            <param name="data">Array to copy device memory to.</param>
+            <param name="incy">Offset from the begining of the array to start copy to.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.SetMatrix``1(System.Int32,System.Int32,``0[],System.Int32,GASS.CUDA.Types.CUdeviceptr,System.Int32)">
+            <summary>
+            Sets the matrix in device memory to values of the specified array.
+            </summary>
+            <typeparam name="T">Type of array and destination matrix, must be 
+            one of CUDA supported primitives.</typeparam>
+            <param name="rows">Number of rows of the matrix to set.</param>
+            <param name="cols">Number of columns of the matrix to set.</param>
+            <param name="data">Array containing values to copy to device.</param>
+            <param name="lda">Leading dimension of source matrix.</param>
+            <param name="ptr">Matrix in device memory to copy data to.</param>
+            <param name="ldb">Leading dimension of destination matrix.</param>
+        </member>
+        <member name="M:GASS.CUDA.BLAS.CUBLAS.GetMatrix``1(System.Int32,System.Int32,GASS.CUDA.Types.CUdeviceptr,System.Int32,``0[],System.Int32)">
+            <summary>
+            Copies matrix data stored in device memory to the specified array.
+            </summary>
+            <typeparam name="T">Type of array and source matrix, must be 
+            one of CUDA supported primitives.</typeparam>
+            <param name="rows">Number of rows of the matrix to copy.</param>
+            <param name="cols">Number of columns of the matrix to copy.</param>
+            <param name="ptr">Matrix in device memory to copy data from.</param>
+            <param name="lda">Leading dimension of source matrix.</param>
+            <param name="data">Array to copy data to.</param>
+            <param name="ldb">Leading dimension of destination matrix.</param>
+        </member>
+        <member name="F:GASS.CUDA.BLAS.CUBLAS.useRuntimeExceptions">
+            <summary>
+            Holds a value that indicates for the class whether to throw runtime
+            exceptions when an error result is returned by calling any of the
+            CUBLAS driver functions.
+            </summary>
+            <remarks>Default is true.</remarks>
+        </member>
+        <member name="F:GASS.CUDA.BLAS.CUBLAS.lastError">
+            <summary>
+            Holds the last result returned by calling one of the CUBLAS driver
+            functions.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.BLAS.CUBLAS.cuda">
+            <summary>
+            Holds a reference to a CUDA class to provide memory allocation 
+            capabilities.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.BLAS.CUBLAS.LastError">
+            <summary>
+            Gets the last error/result returned by calling CUBLAS driver functions.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.BLAS.CUBLAS.UseRuntimeExceptions">
+            <summary>
+            Gets or sets a value to indicate whether to use runtime exceptions
+            when a CUBLAS driver function returns an error, or to ignore that error.
+            </summary>
+            <remarks>The default value is <code>true</code>.</remarks>
+        </member>
+        <member name="T:GASS.CUDA.DeviceProperties">
+            <summary>
+            <code>DeviceProperties</code> holds advanced information for every 
+            device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.maxThreadsPerBlock">
+            <summary>
+            Holds the maximum number of threads that each block supports.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.maxThreadsDim">
+            <summary>
+            Holds an array that corresponds to two dimensions, as threads can 
+            be specified: X and Y.
+            The number in every cell specifies the maximum number of threads 
+            supported by each block in the given dimension.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.maxGridSize">
+            <summary>
+            Holds an array that corresponds to three dimensions, as blocks can 
+            be specified: X, Y and Z.
+            The number in every cell specifies the maximum number of blocks 
+            supported in the given dimension.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.sharedMemPerBlock">
+            <summary>
+            Holds a value that indicates the maximum amount of shared memory 
+            (as bytes) for every block.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.totalConstantMemory">
+            <summary>
+            Holds a value that indicates the maximum available constant memory 
+            in the device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.simdWidth">
+            <summary>
+            Holds the maximum size for a wrap or multiple instructions that can
+            be executed in the same time.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.memPitch">
+            <summary>
+            Holds a value that indicates the supported memory pitch for the 
+            device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.regsPerBlock">
+            <summary>
+            Holds a value that indicates the maximum number of registers that 
+            can be used by a single block.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.clockRate">
+            <summary>
+            Holds a value that indicates the clock rate at which the device 
+            operates.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.DeviceProperties.textureAlign">
+            <summary>
+            Holds a value that indicates the minimum alignment reqruiment for 
+            textures.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.MaxThreadsPerBlock">
+            <summary>
+            Gets the maximum number of threads supported per block.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.MaxThreadsDim">
+            <summary>
+            Gets the maximum number of threads that can be specified in every 
+            dimension of a block (2D - X and Y).
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.MaxGridSize">
+            <summary>
+            Gets the maximum number of blocks that can be specified in every 
+            dimension of a grid (3D - X, Y and Z).
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.SharedMemoryPerBlock">
+            <summary>
+            Gets the total amount of shared memory per block.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.TotalConstantMemory">
+            <summary>
+            Gets the total amount of constant memory accessible for the device.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.SIMDWidth">
+            <summary>
+            Gets the size of the warp or number of instructions that can be 
+            executed at the same time.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.MemoryPitch">
+            <summary>
+            Gets a value that indicates the memory pitch supported by the device.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.RegistersPerBlock">
+            <summary>
+            Gets the number of registers available per block.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.ClockRate">
+            <summary>
+            Gets the clock rate at which the device operates.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.DeviceProperties.TextureAlign">
+            <summary>
+            Gets the minimum requirement for texture alignment in the device.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFTType.RealToComplex">
+            <summary>
+            Real to Complex (interleaved)
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFTType.ComplexToReal">
+            <summary>
+            Complex (interleaved) to Real
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFTType.ComplexToComplex">
+            <summary>
+            Complex to Complex, interleaved
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.CUDA">
+            <summary>
+            <code>CUDA</code> provides an object oriented approach to CUDA
+            driver API, thus simplifing access to CUDA functionality.
+            </summary>
+            <remarks>
+            After every call to a driver function, an internal parameter is set
+            to hold the error value returned by the specific function.
+            This information can be accessed by <code>LastError</code> property of the
+            object.
+            </remarks>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.#ctor">
+            <summary>
+            Creates a new instance of <code>CUDA</code> without initializing
+            the driver.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.#ctor(System.Boolean)">
+            <summary>
+            Creates a new instance of <code>CUDA</code> allowing to control
+            whether to initialize the driver or not. While using default flags
+            (<code>InitializationFlags.None</code>).
+            </summary>
+            <param name="initialize">
+            <code>true</code> to initialize the driver, <code>false</code> otherwise.
+            </param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.#ctor(System.Boolean,GASS.CUDA.InitializationFlags)">
+            <summary>
+            Creates a new instance of <code>CUDA</code> allowing to control
+            whether to initialize the driver or not.
+            </summary>
+            <param name="initialize">
+            <code>true</code> to initialize the driver, <code>false</code> otherwise.
+            </param>
+            <param name="flags">
+            Specifies which flags to pass to <code>cuInit</code> function that 
+            initializes the driver.
+            </param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Finalize">
+            <summary>
+            Destructor. Calls the <code>Dispose</code> function of the object.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Dispose">
+            <summary>
+            Releases all resources used by the object while using CUDA.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Init">
+            <summary>
+            Initializes the CUDA driver with default flags 
+            (<code>InitializationFlags.None</code>).
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Init(GASS.CUDA.InitializationFlags)">
+            <summary>
+            Initializes the CUDA driver with the specified flags.
+            </summary>
+            <param name="initializationFlags">Flags to pass to <code>cuInit</code></param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateContext(System.Int32)">
+            <summary>
+            Creates a new context, attached to the specified device ordinal.
+            </summary>
+            <param name="ordinal">Ordinal of the device to attach to.</param>
+            <returns>Context object to be used with other context related functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateContext(System.Int32,GASS.CUDA.ContextFlags)">
+            <summary>
+            Creates a new context, attached to the specified device ordinal.
+            </summary>
+            <param name="ordinal">Ordinal of the device to attach to.</param>
+            <param name="flags">Specific flags to pass to <code>cuCtxCreate</code>.</param>
+            <returns>Context object to be used with other context related functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.AttachContext(GASS.CUDA.Types.CUcontext)">
+            <summary>
+            Attaches the driver to a previously created context.
+            </summary>
+            <param name="ctx">Context to attach driver functions to.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.AttachContext(GASS.CUDA.Types.CUcontext,GASS.CUDA.ContextFlags)">
+            <summary>
+            Attaches the driver to a previously created context.
+            </summary>
+            <param name="ctx">Context to attach driver functions to.</param>
+            <param name="flags">Flags to pass to <code>cuCtxAttach</code>.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SynchronizeContext">
+            <summary>
+            Synchronizes all operations performed in this context and waits for 
+            them to finish.
+            </summary>
+            <remarks>This function is especially useful when performing memory 
+            operations or launching functions on the device asynchronously.</remarks>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.DetachContext">
+            <summary>
+            Detaches the current context from the driver.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.DetachContext(GASS.CUDA.Types.CUcontext)">
+            <summary>
+            Detaches the specified context from the driver.
+            </summary>
+            <param name="ctx">Context to detach.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.LoadModule(System.String)">
+            <summary>
+            Loads the specified module using the specified file path.
+            </summary>
+            <param name="filename">Filename to load.</param>
+            <returns>Module object to be used across other module functions.</returns>
+            <remarks>
+            Use this function to load <code>cubin</code> files 
+            for executing functions on the device.
+            Please note, that a full path should be specified to avoid problems of the driver.
+            </remarks>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.LoadModule(System.Byte[])">
+            <summary>
+            Loads the specified module from a binary data.
+            </summary>
+            <param name="binaryImage">Byte array containing a <code>cubin</code> 
+            file representation to load.</param>
+            <returns>Module object to be used across other module functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.LoadFatModule(System.Byte[])">
+            <summary>
+            Used to load <code>cubin</code> files attached together.
+            This method isn't supported by the CUDA driver.
+            </summary>
+            <param name="fatBin">Byte array containing several <code>cubin</code> files.</param>
+            <returns>Module object to be used across other module functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.UnloadModule">
+            <summary>
+            Unloads the current module from the driver.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.UnloadModule(GASS.CUDA.Types.CUmodule)">
+            <summary>
+            Unloads the specified module from the driver.
+            </summary>
+            <param name="mod">Module to unload.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetModuleFunction(System.String)">
+            <summary>
+            Returns the requested function from the current module.
+            </summary>
+            <param name="funcName">Function name to load.</param>
+            <returns>Function object to be used across other function 
+            management functions.</returns>
+            <remarks>When specifying function names, note that the compiler uses
+            C++ name mangling, so to use simple naming, add the 
+            <code>extern "C"</code> directive before the <code>__global__</code> 
+            keyword.</remarks>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetModuleFunction(GASS.CUDA.Types.CUmodule,System.String)">
+            <summary>
+            Returns the requested function from the specified module.
+            </summary>
+            <param name="mod">Module to load the function from.</param>
+            <param name="funcName">Function name to load.</param>
+            <returns>Function object to be used across other function 
+            management functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetModuleGlobal(System.String)">
+            <summary>
+            Returns a pointer to a global resource in the device code of the
+            current module.
+            </summary>
+            <param name="globalName">Name of the global resource to get.</param>
+            <returns>Pointer to the data.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetModuleGlobal(GASS.CUDA.Types.CUmodule,System.String)">
+            <summary>
+            Returns a pointer to a global resource in the device code of the
+            specified module.
+            </summary>
+            <param name="mod">Module to get the global from.</param>
+            <param name="globalName">Name of the global resource to get.</param>
+            <returns>Pointer to the data.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetModuleGlobalBytes(System.String)">
+            <summary>
+            Returns the size in bytes of the global resource from the current module.
+            </summary>
+            <param name="globalName">Global name to get it's size.</param>
+            <returns>Size in bytes of the global resource.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetModuleGlobalBytes(GASS.CUDA.Types.CUmodule,System.String)">
+            <summary>
+            Returns the size in bytes of the global resource from the specified module.
+            </summary>
+            <param name="mod">Module to get the global size from.</param>
+            <param name="globalName">Global name to get it's size.</param>
+            <returns>Size in bytes of the global resource.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Allocate(System.UInt32)">
+            <summary>
+            Allocate device memory using the specified amount of bytes.
+            </summary>
+            <param name="bytes">Bytes of device memory to allocate.</param>
+            <returns>Pointer to device memory.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Allocate``1(``0[])">
+            <summary>
+            Allocate device memory using the provided array to determine the size
+            in bytes needed to host the array in device memory.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="array">Array to allocate memory for.</param>
+            <returns>Pointer to device memory.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Free(GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Free previously allocated device memory.
+            </summary>
+            <param name="ptr">Pointer to allocated device device memory.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToDevice``1(``0[])">
+            <summary>
+            Copies the given array to device memory, returning the allocated 
+            device memory pointer.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="data">Array to copy to device memory.</param>
+            <returns>Pointer to device memory.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToDevice``1(GASS.CUDA.Types.CUdeviceptr,``0[])">
+            <summary>
+            Copies the given array to device memory using a pre-allocated pointer.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="devPtr">Pointer to allocated device memory.</param>
+            <param name="data">Array to copy to device memory.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyDeviceToHost``1(GASS.CUDA.Types.CUdeviceptr,``0[])">
+            <summary>
+            Copies memory from the device to the specified array.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="devPtr">Pointer to device memory containing the data to copy.</param>
+            <param name="data">Array to copy the data to.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyDeviceToDevice(GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr,System.UInt32)">
+            <summary>
+            Intra-device copy. Used to copy memory from one device region to another.
+            </summary>
+            <param name="src">Pointer to device memory containing the data to copy from.</param>
+            <param name="dst">Pointer to device memory to copy the data to.</param>
+            <param name="bytes">Number of bytes to copy.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToArray``1(``0[])">
+            <summary>
+            Copies the given array to device memory and allocates the necessary memory.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="data">Array to copy to device.</param>
+            <returns>Array object to use across device array functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToArray``1(``0[],System.UInt32)">
+            <summary>
+            Copies the given array to device memory starting from the specified index.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="data">Array to copy to device memory.</param>
+            <param name="index">Array index to start copy from.</param>
+            <returns>Array object to use across device array functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToArray``1(GASS.CUDA.Types.CUarray,``0[],System.UInt32)">
+            <summary>
+            Copies the given array to a pre-allocated device memory, starting from
+            the provided index.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="devArray">Pointer to device array memory object.</param>
+            <param name="data">Array to copy to the device.</param>
+            <param name="index">Array index to start copy from.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyArrayToHost``1(GASS.CUDA.Types.CUarray,``0[],System.UInt32)">
+            <summary>
+            Copies device array data to the host.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="devArray">Pointer to device array.</param>
+            <param name="data">Array to copy data to.</param>
+            <param name="index">Array index to start copy from.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyArrayToArray(GASS.CUDA.Types.CUarray,System.UInt32,GASS.CUDA.Types.CUarray,System.UInt32,System.UInt32)">
+            <summary>
+            Copy array data inside the device.
+            </summary>
+            <param name="src">Pointer to array to copy from.</param>
+            <param name="srcIndex">Source array index to copy from.</param>
+            <param name="dst">Pointer to array to copy to.</param>
+            <param name="dstIndex">Destination array index to copy to.</param>
+            <param name="bytes">Number of bytes to copy.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Copy2D(GASS.CUDA.CUDAMemCpy2D)">
+            <summary>
+            Performs a 2D copy by the CUDA driver.
+            </summary>
+            <param name="desc">Describes the 2D copy to perform.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Copy2DUnaligned(GASS.CUDA.CUDAMemCpy2D)">
+            <summary>
+            Performs a 2D unaligned copy by the CUDA driver.
+            </summary>
+            <param name="desc"></param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToDeviceAsync``1(``0[],GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous host to device memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="stream">Stream to use for copy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToDeviceAsync``1(GASS.CUDA.Types.CUdeviceptr,``0[],GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous host to device memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="devPtr"></param>
+            <param name="data"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyDeviceToHostAsync``1(GASS.CUDA.Types.CUdeviceptr,``0[],GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous device to host memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="devPtr"></param>
+            <param name="data"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToArrayAsync``1(``0[],GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous host to array memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToArrayAsync``1(``0[],System.UInt32,GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous host to array memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyHostToArrayAsync``1(GASS.CUDA.Types.CUarray,``0[],System.UInt32,GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous host to array memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="devArray"></param>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CopyArrayToHostAsync``1(GASS.CUDA.Types.CUarray,``0[],System.UInt32,GASS.CUDA.Types.CUstream)">
+            <summary>
+            Asynchronous array to host memory copy.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="devArray"></param>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Copy2DAsync(GASS.CUDA.CUDAMemCpy2D,GASS.CUDA.Types.CUstream)">
+            <summary>
+            Performs an asynchronous 2D copy by the CUDA driver.
+            </summary>
+            <param name="desc">Describes the 2D copy to perform.</param>
+            <param name="stream">Stream to use for asynchronous copy.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SetFunctionBlockShape(GASS.CUDA.Types.CUfunction,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets block size for function execution.
+            </summary>
+            <param name="func">Function to set block size for.</param>
+            <param name="x">X dimension size for block execution.</param>
+            <param name="y">Y dimension size for block execution.</param>
+            <param name="z">Z dimension size for block execution.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SetFunctionSharedSize(GASS.CUDA.Types.CUfunction,System.UInt32)">
+            <summary>
+            Set shared size for function execution.
+            </summary>
+            <param name="func">Function to set shared size for.</param>
+            <param name="sharedSize">Shared memory size in bytes.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateArray(GASS.CUDA.CUArrayFormat,System.UInt32,System.UInt32)">
+            <summary>
+            Creates an array in device memory.
+            </summary>
+            <param name="format">Format of array element.</param>
+            <param name="width">Width of array.</param>
+            <param name="height">Height of array.</param>
+            <returns>Array object to be used across device array functions.</returns>
+            <remarks>
+            When creating a 1D array, set height to 1.
+            </remarks>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateArray(System.Array)">
+            <summary>
+            Creates array in device memory based on the properties of the provided array.
+            </summary>
+            <param name="arr">Array to allocate device memory for.</param>
+            <returns>Array object to be used across device array functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.DestroyArray(GASS.CUDA.Types.CUarray)">
+            <summary>
+            Releases device memory used by the given array.
+            </summary>
+            <param name="devArr">Array to release memory for.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.GetArrayDescriptor(GASS.CUDA.Types.CUarray)">
+            <summary>
+            Returns the descriptor associated with the provided array.
+            </summary>
+            <param name="devArr">Pointer to device array.</param>
+            <returns>Array descriptor information.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SetParameterSize(GASS.CUDA.Types.CUfunction,System.UInt32)">
+            <summary>
+            Set total size for parameter information for the given function.
+            </summary>
+            <param name="func">Function to set parameter size for.</param>
+            <param name="bytes">Number of bytes for parameters definition of the function.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SetParameter(GASS.CUDA.Types.CUfunction,System.Int32,System.Single)">
+            <summary>
+            Set a floating point (single precision) value as a parameter in 
+            the specified position.
+            </summary>
+            <param name="func">Function to set parameter value for.</param>
+            <param name="offset">Offset from parameters begining.</param>
+            <param name="value">Float value to set.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SetParameter(GASS.CUDA.Types.CUfunction,System.Int32,System.UInt32)">
+            <summary>
+            Set an integer value as a parameter in the specified position.
+            </summary>
+            <param name="func">Function to set parameter value for.</param>
+            <param name="offset">Offset from parameters begining.</param>
+            <param name="value">Integer value to set.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SetParameter``1(GASS.CUDA.Types.CUfunction,System.Int32,``0[])">
+            <summary>
+            Set vector/array value as a parameter in the specified position.
+            </summary>
+            <typeparam name="T">One of CUDADriver supported primitives.</typeparam>
+            <param name="func">Function to set parameter value for.</param>
+            <param name="offset">Offset from parameters begining.</param>
+            <param name="value">Vector/array value to set.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.Launch(GASS.CUDA.Types.CUfunction)">
+            <summary>
+            Launch the given function in the device.
+            </summary>
+            <param name="func">Function to launch in the device.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GASS.CUDA.CUDA.Launch(GASS.CUDA.Types.CUfunction,System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:GASS.CUDA.CUDA.LaunchAsync(GASS.CUDA.Types.CUfunction,System.Int32,System.Int32,GASS.CUDA.Types.CUstream)" -->
+        <member name="M:GASS.CUDA.CUDA.CreateEvent">
+            <summary>
+            Creates an event using default flags (<code>EventFlags.None</code>).
+            </summary>
+            <returns>Pointer to event object to be used across device event functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateEvent(GASS.CUDA.EventFlags)">
+            <summary>
+            Creates an event using the specified flags.
+            </summary>
+            <param name="flags">Flags for event creation.</param>
+            <returns>Pointer to event object to be used across device event functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.RecordEvent(GASS.CUDA.Types.CUevent)">
+            <summary>
+            Records the current time in the event.
+            </summary>
+            <param name="e">Event to record time for.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.RecordEvent(GASS.CUDA.Types.CUevent,GASS.CUDA.Types.CUstream)">
+            <summary>
+            Records the event over the given stream.
+            </summary>
+            <param name="e">Event to record time for.</param>
+            <param name="stream">Stream to record the event for.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SynchronizeEvent(GASS.CUDA.Types.CUevent)">
+            <summary>
+            Synchronizes event information.
+            </summary>
+            <param name="e">Event to synchronize.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.DestroyEvent(GASS.CUDA.Types.CUevent)">
+            <summary>
+            Releases resources used by the device and the driver.
+            </summary>
+            <param name="e">Event to release.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.ElapsedTime(GASS.CUDA.Types.CUevent,GASS.CUDA.Types.CUevent)">
+            <summary>
+            Measures elapsed time between the specified events.
+            </summary>
+            <param name="start">Event representing the starting point.</param>
+            <param name="end">Event representing the end point.</param>
+            <returns>Elapsed time in millis.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateStream">
+            <summary>
+            Creates a stream for asynchronous communication with the device 
+            using default flags (<code>StreamFlags.None</code>).
+            </summary>
+            <returns>Pointer to stream object to be used across device stream functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.CreateStream(GASS.CUDA.StreamFlags)">
+            <summary>
+            Creates a stream for asynchronous communication with the device.
+            </summary>
+            <param name="flags">Flags for stream creation.</param>
+            <returns>Pointer to stream object to be used across device stream functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.SynchronizeStream(GASS.CUDA.Types.CUstream)">
+            <summary>
+            Syncronizes all operations over the stream.
+            </summary>
+            <param name="stream">Stream to syncronize.</param>
+        </member>
+        <member name="M:GASS.CUDA.CUDA.DestroyStream(GASS.CUDA.Types.CUstream)">
+            <summary>
+            Releases all device and driver resources consumed by the stream.
+            </summary>
+            <param name="stream">Stream to release.</param>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.Version">
+            <summary>
+            Gets the version of CUDA driver supported by this class.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.Devices">
+            <summary>
+            Gets a collection of devices recognized by CUDA.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.LastError">
+            <summary>
+            Gets the last error/result returned by calling a function of the
+            CUDA driver.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.UseRuntimeExceptions">
+            <summary>
+            Gets or sets a value indicating whether to raise exceptions when
+            a CUDA driver function returns with a failure result code.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.CurrentDevice">
+            <summary>
+            Gets the current device this class is using.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.FreeMemory">
+            <summary>
+            Gets the amount of free memory available for use by the device.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.CUDA.TotalMemory">
+            <summary>
+            Gets the total amount of memory available for use by the device.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.CUDAMemCpy2D">
+            <summary>
+            <code>CUDAMemCpy2D</code> describes a 2D memory copy to be perofrmed
+            by the CUDA driver.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.FFT.CUFFTDriver">
+            <summary>
+            <code>CUFFTDriver</code> provides access to CUFFT driver API.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.FFT.CUFFTException">
+            <summary>
+            Represents an exception that occured in the FFT driver.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.FFT.CUFFTException.CUFFTError">
+            <summary>
+            Gets the error code returned by CUFFT driver that caused the exception.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.CUDADriver">
+            <summary>
+            <code>CUDADriver</code> provides access to driver API for CUDA.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.BLAS.CUBLASDriver">
+            <summary>
+            <code>CUBLASDriver</code> provides access to CUBLAS driver API.
+            </summary>
+        </member>
+        <member name="T:GASS.CUDA.FFT.CUFFT">
+            <summary>
+            <code>CUFFT</code> provides an object oriented model for accessing
+            FFT functionality of CUDA, using <code>CUDADriver</code> to communicate
+            with CUDA.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.#ctor(GASS.CUDA.CUDA)">
+            <summary>
+            Creates a new instance of <code>CUFFT</code> class.
+            </summary>
+            <param name="cuda">CUDA object to use for memory allocation and other operations.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Plan1D(System.Int32,GASS.CUDA.FFT.CUFFTType,System.Int32)">
+            <summary>
+            Creates a new 1D FFT based on the provided parameters.
+            </summary>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="type">Type of transformation to use.</param>
+            <param name="batch">Number of transforms of size <code>nx</code>.</param>
+            <returns>Handle to be used by consequent calls to CUFFT functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Plan2D(System.Int32,System.Int32,GASS.CUDA.FFT.CUFFTType)">
+            <summary>
+            Creates a new 2D FFT based on the provided parameters.
+            </summary>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT) for x dimension.</param>
+            <param name="ny">Transform size (e.g., 256 for 256 point FFT) for y dimension.</param>
+            <param name="type">Type of transformation to use.</param>
+            <returns>Handle to be used by consequent calls to CUFFT functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Plan3D(System.Int32,System.Int32,System.Int32,GASS.CUDA.FFT.CUFFTType)">
+            <summary>
+            Creates a new 3D FFT based on the provided parameters.
+            </summary>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT) for x dimension.</param>
+            <param name="ny">Transform size (e.g., 256 for 256 point FFT) for y dimension.</param>
+            <param name="nz">Transform size (e.g., 256 for 256 point FFT) for z dimension.</param>
+            <param name="type">Type of transformation to use.</param>
+            <returns>Handle to be used by consequent calls to CUFFT functions.</returns>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Destroy">
+            <summary>
+            Releases all resources used by the current FFT plan.
+            </summary>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Destroy(GASS.CUDA.FFT.Types.cufftHandle)">
+            <summary>
+            Releases all resources used by the provided FFT plan.
+            </summary>
+            <param name="plan">Plan to release resources for.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.ExecuteComplexToComplex(GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.FFT.CUFFTDirection)">
+            <summary>
+            Executes a complex->complex FFT using the current plan.
+            </summary>
+            <param name="input">Pointer to device memory holding the data serving as input.</param>
+            <param name="output">Pointer to device memory to receive output results.</param>
+            <param name="direction">Direction of the FFT to apply.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.ExecuteComplexToComplex(GASS.CUDA.FFT.Types.cufftHandle,GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.FFT.CUFFTDirection)">
+            <summary>
+            Executes a complex->complex FFT using the specified plan.
+            </summary>
+            <param name="plan">Specific plan to use for FFT.</param>
+            <param name="input">Pointer to device memory holding the data serving as input.</param>
+            <param name="output">Pointer to device memory to receive output results.</param>
+            <param name="direction">Direction of the FFT to apply.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.ExecuteRealToComplex(GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Executes a real->complex FFT using the current plan.
+            </summary>
+            <param name="input">Pointer to device memory holding the data serving as input.</param>
+            <param name="output">Pointer to device memory to receive output results.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.ExecuteRealToComplex(GASS.CUDA.FFT.Types.cufftHandle,GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Executes a real->complex FFT using the specified plan.
+            </summary>
+            <param name="plan">Specific plan to use for FFT.</param>
+            <param name="input">Pointer to device memory holding the data serving as input.</param>
+            <param name="output">Pointer to device memory to receive output results.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.ExecuteComplexToReal(GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Executes a complex->real FFT using the current plan.
+            </summary>
+            <param name="input">Pointer to device memory holding the data serving as input.</param>
+            <param name="output">Pointer to device memory to receive output results.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.ExecuteComplexToReal(GASS.CUDA.FFT.Types.cufftHandle,GASS.CUDA.Types.CUdeviceptr,GASS.CUDA.Types.CUdeviceptr)">
+            <summary>
+            Executes a complex->real FFT using the specified plan.
+            </summary>
+            <param name="plan">Specific plan to use for FFT.</param>
+            <param name="input">Pointer to device memory holding the data serving as input.</param>
+            <param name="output">Pointer to device memory to receive output results.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute1D(GASS.CUDA.FFT.Types.cufftReal[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32)">
+            <summary>
+            Executes a 1D real to complex FFT (implicitly forward).
+            </summary>
+            <param name="input">Real values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="batch">Number of transforms of size <code>nx</code>.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute1D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftReal[],System.Int32,System.Int32)">
+            <summary>
+            Executes a 1D complex to real FFT (implicitly inverse).
+            </summary>
+            <param name="input">Complex values array serving as output to FFT.</param>
+            <param name="output">Real values array serving as input to FFT.</param>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="batch">Number of transforms of size <code>nx</code>.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute1D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32)">
+            <summary>
+            Executes a 1D complex to complex FFT (implicitly forward).
+            </summary>
+            <param name="input">Complex values array serving as output to FFT.</param>
+            <param name="output">complex values array serving as input to FFT.</param>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="batch">Number of transforms of size <code>nx</code>.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute1D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32,GASS.CUDA.FFT.CUFFTDirection)">
+            <summary>
+            Executes a 1D complex to complex FFT (implicitly inverse).
+            </summary>
+            <param name="input">Complex values array serving as output to FFT.</param>
+            <param name="output">Complex values array serving as input to FFT.</param>
+            <param name="nx">Transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="batch">Number of transforms of size <code>nx</code>.</param>
+            <param name="direction">Direction for FFT.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute2D(GASS.CUDA.FFT.Types.cufftReal[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32)">
+            <summary>
+            Executes a 2D real to complex FFT (implicitly forward).
+            </summary>
+            <param name="input">Real values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute2D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftReal[],System.Int32,System.Int32)">
+            <summary>
+            Executes a 2D complex to real FFT (implicitly forward).
+            </summary>
+            <param name="input">Complex values array serving as input to FFT.</param>
+            <param name="output">Real values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute2D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32)">
+            <summary>
+            Executes a 2D complex to complex FFT (implicitly forward).
+            </summary>
+            <param name="input">Complex values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute2D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32,GASS.CUDA.FFT.CUFFTDirection)">
+            <summary>
+            Executes a 2D complex to complex FFT.
+            </summary>
+            <param name="input">Complex values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="direction">Direction for FFT.</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute3D(GASS.CUDA.FFT.Types.cufftReal[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Executes a 3D real to complex FFT (implicitly forward).
+            </summary>
+            <param name="input">Real values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="nz">Z dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute3D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftReal[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Executes a 3D complex to real FFT (implicitly inverse).
+            </summary>
+            <param name="input">Complex values array serving as input to FFT.</param>
+            <param name="output">Real values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="nz">Z dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute3D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Executes a 3D complex to complex FFT (implicitly forward).
+            </summary>
+            <param name="input">Complex values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="nz">Z dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="M:GASS.CUDA.FFT.CUFFT.Execute3D(GASS.CUDA.FFT.Types.cufftComplex[],GASS.CUDA.FFT.Types.cufftComplex[],System.Int32,System.Int32,System.Int32,GASS.CUDA.FFT.CUFFTDirection)">
+            <summary>
+            Executes a 3D complex to complex FFT.
+            </summary>
+            <param name="input">Complex values array serving as input to FFT.</param>
+            <param name="output">Complex values array serving as output to FFT.</param>
+            <param name="nx">X dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="ny">Y dimension transform size (e.g., 256 for 256 point FFT).</param>
+            <param name="nz">Z dimension transform size (e.g., 256 for 256 point FFT).</param>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFT.useRuntimeExceptions">
+            <summary>
+            Holds a value that indicates for the class whether to throw runtime
+            exceptions when an error result is returned by calling any of the
+            CUFFT driver functions.
+            </summary>
+            <remarks>Default is true.</remarks>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFT.lastError">
+            <summary>
+            Holds the last result returned by calling one of the CUFFT driver
+            functions.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFT.cuda">
+            <summary>
+            Holds a reference to a CUDA class to provide memory allocation 
+            capabilities.
+            </summary>
+        </member>
+        <member name="F:GASS.CUDA.FFT.CUFFT.plan">
+            <summary>
+            Holds the handle created by the user.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.FFT.CUFFT.LastError">
+            <summary>
+            Gets the last error/result returned by calling CUFFT driver functions.
+            </summary>
+        </member>
+        <member name="P:GASS.CUDA.FFT.CUFFT.UseRuntimeExceptions">
+            <summary>
+            Gets or sets a value to indicate whether to use runtime exceptions
+            when a CUFFT driver function returns an error, or to ignore that error.
+            </summary>
+            <remarks>The default value is <code>true</code>.</remarks>
+        </member>
+    </members>
+</doc>
