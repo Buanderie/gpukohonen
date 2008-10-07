@@ -56,13 +56,23 @@ namespace GPUKohonenLib
 
 
             FloatParallelArray pacc = ParallelArrays.InnerProduct(inputnorm, weightnorm);
-            FloatParallelArray bmxval = ParallelArrays.MaxVal(pacc, 1);
-            ParallelArrays.ToArray(bmxval, out test);
 
             //Replication bug here...
-            bmxval = ParallelArrays.AddDimension(bmxval, 1);
-            bmxval = ParallelArrays.Stretch(bmxval, 1, 10);
-            //Send mail
+            FloatParallelArray bmxval = ParallelArrays.MaxVal(pacc, 1);
+            //MSR Vivian Swelson workaround
+            DisposableFloatParallelArray bmxvalEvaluated = ParallelArrays.Evaluate(bmxval);
+            bmxval = ParallelArrays.AddDimension(bmxvalEvaluated, 1);
+            bmxval = ParallelArrays.Stretch(bmxval, 1, m_Parent.NeuronMap.GetLength(0));
+            
+            //Winner matrix
+            FloatParallelArray pwinner = ParallelArrays.Subtract(pacc, bmxval);
+            ParallelArrays.ToArray(pwinner, out test2d);
+
+            //Weights Update
+            /* weight and pwinner are sliced at the same time
+             * if the current slice contains 0, then make an updated slice according
+            
+             */
 
             int popopo = 34;
 
@@ -70,7 +80,6 @@ namespace GPUKohonenLib
 
         public override void DoEpoch(float t, float round_t)
         {
-            float[] pol = null;
             this.FindBMU();
         }
     }

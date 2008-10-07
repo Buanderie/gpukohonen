@@ -27,10 +27,11 @@ namespace GPUKohonenTest
             IDataSource ds = new ColorFromTextDataSource("colors");
             IDataSource ds2 = new TimeSerieDataSource("stocks.txt", 6);
             int[] mapsize = new int [2];
-            mapsize[0] = 50;
-            mapsize[1] = 50;
+            mapsize[0] = 4;
+            mapsize[1] = 4;
             IMapShape ms = new SquareShape(mapsize);
             IKohonenCore kc = new MSRAcceleratorKohonenCore();
+            //IKohonenCore kc = new CPUKohonenCore();
             KohonenSOM som = new KohonenSOM(kc, ms, ds);
             som.Init();
             som.DoRound(300);

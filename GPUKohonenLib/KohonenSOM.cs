@@ -138,9 +138,9 @@ namespace GPUKohonenLib
             Bitmap bm = new Bitmap( (int)Math.Sqrt(m_MapShape.GetFlatLength()), (int)Math.Sqrt(m_MapShape.GetFlatLength() ));
             for (int i = 0; i < Math.Sqrt(m_MapShape.GetFlatLength()); ++i)
                 for (int j = 0; j < Math.Sqrt(m_MapShape.GetFlatLength()); ++j)
-                    bm.SetPixel(j, i, Color.FromArgb((int)(Math.Floor(NeuronMap[50 * i + j, 0])),
-                                                     (int)(NeuronMap[50 * i + j, 1]),
-                                                     (int)(NeuronMap[50 * i + j, 2]))
+                    bm.SetPixel(j, i, Color.FromArgb((int)(Math.Floor(NeuronMap[4 * i + j, 0])),
+                                                     (int)(NeuronMap[4 * i + j, 1]),
+                                                     (int)(NeuronMap[4 * i + j, 2]))
                                                      );
             return bm;
         }
