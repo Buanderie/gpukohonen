@@ -39,6 +39,23 @@ namespace GPUKohonenLib
             }
         }
 
+        public float[,] UnitCoordinates
+        {
+            get
+            {
+                float[,] spapos = new float[m_SpatialPos.Count, m_Dimensions];
+                for (int i = 0; i < m_SpatialPos.Count; ++i)
+                for( int j = 0; j < m_Dimensions; ++j )
+                {
+                    spapos[i, j] = m_SpatialPos[i][j];    
+                }
+                return spapos;
+            }
+            set
+            {
+            }
+        }
+
         public abstract int GetFlatLength();
         public abstract float[] GetSpatialPosition( int Index );
     }

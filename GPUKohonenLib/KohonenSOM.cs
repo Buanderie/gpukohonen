@@ -99,6 +99,17 @@ namespace GPUKohonenLib
             }
         }
 
+        public float[,] NeuronMapCoordArray
+        {
+            get
+            {
+                return m_MapShape.UnitCoordinates;
+            }
+            set
+            {
+            }
+        }
+
         private void InitNeuronMap(KOHONEN_SOM_MAPINIT_TYPE InitType, float min, float max)
         {
             Random RandomNumber = new Random();

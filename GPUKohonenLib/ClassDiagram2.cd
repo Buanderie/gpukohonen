@@ -20,7 +20,7 @@
   <Class Name="GPUKohonenLib.MSRAcceleratorKohonenCore" BaseTypeListCollapsed="true">
     <Position X="3.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAACAACAAAAAAAAAAAAAAACAQAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAACAACgAAAAAAAIAAAAAACAQAAAAA=</HashCode>
       <FileName>MSRAcceleratorKohonenCore.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -48,7 +48,7 @@
   <Class Name="GPUKohonenLib.ColorFromTextDataSource">
     <Position X="9.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAgAAEAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAgAAEAAAAAAAAAAAAAAAAEQAAAAAAAA=</HashCode>
       <FileName>ColorFromTextDataSource.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -62,19 +62,19 @@
   <Class Name="GPUKohonenLib.IDataSource" Collapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAiAAAAAAAAAAEAAAAAAAQAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>IDataSource.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GPUKohonenLib.IMapShape" Collapsed="true">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EQAAAAAAAAAAAAAAAAAAAAQAAAIAQAAAAAQAAAAABAA=</HashCode>
+      <HashCode>EQAAAAAAAAAAAAAAAAAAAAQAAAIAQAAAAAQAAAAAJAA=</HashCode>
       <FileName>IMapShape.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GPUKohonenLib.SphereShape">
-    <Position X="7" Y="3.75" Width="1.5" />
+    <Position X="7" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SphereShape.cs</FileName>
@@ -83,7 +83,7 @@
   <Class Name="GPUKohonenLib.TimeSerieDataSource">
     <Position X="9.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAAAAAACQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAEAAAAAAAAAAAACQAAAQAAAAAAAA=</HashCode>
       <FileName>TimeSerieDataSource.cs</FileName>
     </TypeIdentifier>
   </Class>
