@@ -74,6 +74,8 @@ namespace GPUKohonenLib
                     }
                 }
             }
+            float testou = (float)(2 * Math.Pow(this.Neighborhood(t, round_t), 2));
+            int lol = 345;
         }
 
         private float LearningRate(float t, float round_t)
@@ -94,6 +96,11 @@ namespace GPUKohonenLib
             float m_epsiloninitial_val = 0.1f;
             float m_sigmainitial_val = 25;
             return m_sigmainitial_val * (float)Math.Exp(-(double)t / m_theta_val);
+        }
+
+        public override void Terminate()
+        {
+            
         }
     }
 }
