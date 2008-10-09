@@ -106,8 +106,9 @@ namespace GPUKohonenLib
                 FloatParallelArray lrate = new FloatParallelArray((float)LearningRate(t, round_t), m_Parent.NeuronMap.GetLength(0), m_Parent.DataSource.PatternLength);
                 FloatParallelArray omeg = ParallelArrays.Divide(dist, sigma);
                 
-                omeg = ParallelArrays.Pow(constE, omeg);
-                DisposableFloatParallelArray domeg = ParallelArrays.Evaluate(omeg);         //Workaround
+                //FloatParallelArray momeg = ParallelArrays.Pow(constE, omeg);
+                FloatParallelArray momeg = ParallelArrays.Pow2(ParallelArrays.Log2(constE) * omeg);
+                DisposableFloatParallelArray domeg = ParallelArrays.Evaluate(momeg);         //Workaround
                 omeg = ParallelArrays.AddDimension(domeg, 1);                               
                 omeg = ParallelArrays.Stretch(omeg, 1, m_Parent.DataSource.PatternLength);
                 FloatParallelArray sbmuw = ParallelArrays.AddDimension(bmuw,0);
