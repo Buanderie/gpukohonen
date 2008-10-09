@@ -25,16 +25,16 @@ namespace GPUKohonenTest
 
             //New version
             IDataSource ds = new ColorFromTextDataSource("colors");
-            IDataSource ds2 = new TimeSerieDataSource("stocks.txt", 6);
+            IDataSource ds2 = new TimeSerieDataSource("stocks.txt", 16);
             int[] mapsize = new int [2];
-            int size = 40;
+            int size = 42;
             mapsize[0] = size;
             mapsize[1] = size;
             IMapShape ms = new SquareShape(mapsize);
             IKohonenCore kcgpu = new MSRAcceleratorKohonenCore();
             IKohonenCore kccpu = new CPUKohonenCore();
-            somcpu = new KohonenSOM(kccpu, ms, ds);
-            somgpu = new KohonenSOM(kcgpu, ms, ds);
+            somcpu = new KohonenSOM(kccpu, ms, ds2);
+            somgpu = new KohonenSOM(kcgpu, ms, ds2);
             somcpu.Init();
             somgpu.Init();
             //pictureBox1.Image = som.ToWeightBitmap();
@@ -46,9 +46,9 @@ namespace GPUKohonenTest
             double total = 0;
             System.Diagnostics.Stopwatch perf = new System.Diagnostics.Stopwatch();
             perf.Start();
-            somgpu.DoRound(10);
+            somgpu.DoRound( Convert.ToInt32( textBox3.Text));
             perf.Stop();
-            pictureBox2.Image = somgpu.ToWeightBitmap();
+            //pictureBox2.Image = somgpu.ToWeightBitmap();
             textBox1.Text += perf.ElapsedMilliseconds.ToString() + "\r\n";
         }
 
@@ -57,9 +57,9 @@ namespace GPUKohonenTest
             double total = 0;
             System.Diagnostics.Stopwatch perf = new System.Diagnostics.Stopwatch();
             perf.Start();
-            somcpu.DoRound(10);
+            somcpu.DoRound(Convert.ToInt32(textBox3.Text));
             perf.Stop();
-            pictureBox1.Image = somcpu.ToWeightBitmap();
+            //pictureBox1.Image = somcpu.ToWeightBitmap();
             textBox2.Text += perf.ElapsedMilliseconds.ToString() + "\r\n";
         }
     }

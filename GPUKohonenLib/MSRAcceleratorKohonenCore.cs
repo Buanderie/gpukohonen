@@ -86,12 +86,14 @@ namespace GPUKohonenLib
             {
                 slices[1] = new Slice(0, m_Parent.NeuronMap.GetLength(0));
                 slices[0] = new Slice(i,1);
+
                 FloatParallelArray s = ParallelArrays.Section(m_PWinner, slices);
+                s = ParallelArrays.Evaluate(s);
                 FloatParallelArray bmuw = ParallelArrays.DropDimension( ParallelArrays.InnerProduct(s, m_GPUWeight), 0);
                 FloatParallelArray bmuc = ParallelArrays.InnerProduct(s, m_GPUCoord);
 
                 //Compute distances to bmu
-                DisposableFloatParallelArray bmucEvaluated = ParallelArrays.Evaluate(bmuc);
+                DisposableFloatParallelArray bmucEvaluated = ParallelArrays.Evaluate(bmuc);     //Workaround
                 bmuc = ParallelArrays.Stretch(bmucEvaluated, m_Parent.NeuronMap.GetLength(0), 1);
                 FloatParallelArray diff = ParallelArrays.Subtract(m_GPUCoord, bmuc);
                 FloatParallelArray dist = ParallelArrays.Multiply(diff,diff);
@@ -105,14 +107,15 @@ namespace GPUKohonenLib
                 FloatParallelArray omeg = ParallelArrays.Divide(dist, sigma);
                 
                 omeg = ParallelArrays.Pow(constE, omeg);
-                DisposableFloatParallelArray domeg = ParallelArrays.Evaluate(omeg);
-                omeg = ParallelArrays.AddDimension(domeg, 1);
+                DisposableFloatParallelArray domeg = ParallelArrays.Evaluate(omeg);         //Workaround
+                omeg = ParallelArrays.AddDimension(domeg, 1);                               
                 omeg = ParallelArrays.Stretch(omeg, 1, m_Parent.DataSource.PatternLength);
                 FloatParallelArray sbmuw = ParallelArrays.AddDimension(bmuw,0);
                 sbmuw = ParallelArrays.Stretch( sbmuw, m_Parent.NeuronMap.GetLength(0), 1 );
 
-                m_GPUWeight = ParallelArrays.Evaluate((m_GPUWeight + ((sbmuw - m_GPUWeight)* omeg * lrate)));
+                m_GPUWeight = ((m_GPUWeight + ((sbmuw - m_GPUWeight)* omeg * lrate)));
             }
+            m_GPUWeight = ParallelArrays.Evaluate(m_GPUWeight);
         }
 
         private float LearningRate(float t, float round_t)
