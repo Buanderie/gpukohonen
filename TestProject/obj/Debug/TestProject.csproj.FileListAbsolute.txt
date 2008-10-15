@@ -1,0 +1,11 @@
+C:\AcceleratorUtils\TestProject\bin\Debug\TestProject.exe
+C:\AcceleratorUtils\TestProject\bin\Debug\TestProject.pdb
+C:\AcceleratorUtils\TestProject\bin\Debug\Accelerator.dll
+C:\AcceleratorUtils\TestProject\bin\Debug\AcceleratorUtils.dll
+C:\AcceleratorUtils\TestProject\bin\Debug\AcceleratorUtils.pdb
+C:\AcceleratorUtils\TestProject\obj\Debug\ResolveAssemblyReference.cache
+C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.Form1.resources
+C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.Properties.Resources.resources
+C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.csproj.GenerateResource.Cache
+C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.exe
+C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.pdb
