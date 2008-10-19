@@ -16,7 +16,7 @@ namespace AcceleratorUtils
             FloatParallelArray b = ParallelArrays.Replicate(f2, f2.Shape[0] + f1.Shape[0]);
             b = ParallelArrays.ShiftDefault(b, 0.0f, new int[] { f1.Shape[0] });
             b = ParallelArrays.ShiftDefault(b, 0.0f, new int[] { -f1.Shape[0] });
-            return a + b;
+            return (a + b);
         }
     }
 
@@ -39,7 +39,10 @@ namespace AcceleratorUtils
                 IsEmpty = false;
             }
             else
-                m_ContArray = ParallelArraysUtils.Append(m_ContArray, FPAElem,0);
+            {
+                m_ContArray = ParallelArraysUtils.Append(m_ContArray, FPAElem, 0);
+                m_ContArray = ParallelArrays.Evaluate(m_ContArray);
+            }
             
         }
 

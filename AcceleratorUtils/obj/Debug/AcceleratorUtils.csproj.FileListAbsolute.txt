@@ -4,3 +4,9 @@ C:\AcceleratorUtils\AcceleratorUtils\bin\Debug\AcceleratorUtils.pdb
 C:\AcceleratorUtils\AcceleratorUtils\bin\Debug\Accelerator.dll
 C:\AcceleratorUtils\AcceleratorUtils\obj\Debug\AcceleratorUtils.dll
 C:\AcceleratorUtils\AcceleratorUtils\obj\Debug\AcceleratorUtils.pdb
+C:\kohonen\AcceleratorUtils\bin\Debug\AcceleratorUtils.dll
+C:\kohonen\AcceleratorUtils\bin\Debug\AcceleratorUtils.pdb
+C:\kohonen\AcceleratorUtils\bin\Debug\Accelerator.dll
+C:\kohonen\AcceleratorUtils\obj\Debug\ResolveAssemblyReference.cache
+C:\kohonen\AcceleratorUtils\obj\Debug\AcceleratorUtils.dll
+C:\kohonen\AcceleratorUtils\obj\Debug\AcceleratorUtils.pdb

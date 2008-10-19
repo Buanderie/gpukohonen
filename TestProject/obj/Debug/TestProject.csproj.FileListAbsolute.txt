@@ -9,3 +9,14 @@ C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.Properties.Resources.resou
 C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.csproj.GenerateResource.Cache
 C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.exe
 C:\AcceleratorUtils\TestProject\obj\Debug\TestProject.pdb
+C:\kohonen\TestProject\obj\Debug\TestProject.exe
+C:\kohonen\TestProject\obj\Debug\TestProject.pdb
+C:\kohonen\TestProject\bin\Debug\TestProject.exe
+C:\kohonen\TestProject\bin\Debug\TestProject.pdb
+C:\kohonen\TestProject\bin\Debug\Accelerator.dll
+C:\kohonen\TestProject\bin\Debug\AcceleratorUtils.dll
+C:\kohonen\TestProject\bin\Debug\AcceleratorUtils.pdb
+C:\kohonen\TestProject\obj\Debug\ResolveAssemblyReference.cache
+C:\kohonen\TestProject\obj\Debug\TestProject.Form1.resources
+C:\kohonen\TestProject\obj\Debug\TestProject.Properties.Resources.resources
+C:\kohonen\TestProject\obj\Debug\TestProject.csproj.GenerateResource.Cache

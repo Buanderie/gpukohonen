@@ -40,20 +40,26 @@ namespace TestProject
             System.Diagnostics.Stopwatch perf = new System.Diagnostics.Stopwatch();
 
             //GPU
-            for (float i = 0.0f; i < 800.0f; i=i+1.0f)
-                stk.Push(i);
-            for (int i = 0; i < 699; ++i)
-                stk.Pop();
+            for (int y = 0; y < 1; ++y)
+            {
+                for (float i = 0.0f; i < 1000.0f; i = i + 1.0f)
+                    stk.Push(i);
+                for (int i = 0; i < 999; ++i)
+                    stk.Pop();
+            }
             //
 
             //CPU
-            perf.Start();
-            for (float i = 0.0f; i < 800.0f; i = i + 1.0f)
-                stack.Push(i);
-            for (int i = 0; i < 699; ++i)
-                stack.Pop();
-            perf.Stop();
-            label6.Text = perf.ElapsedMilliseconds.ToString();
+            for (int y = 0; y < 1000; ++y)
+            {
+                perf.Start();
+                for (float i = 0.0f; i < 1000.0f; i = i + 1.0f)
+                    stack.Push(i);
+                for (int i = 0; i < 999; ++i)
+                    stack.Pop();
+                perf.Stop();
+                label6.Text = perf.ElapsedMilliseconds.ToString();
+            }
             //
 
             perf.Reset();
