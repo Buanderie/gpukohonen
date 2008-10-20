@@ -27,7 +27,7 @@ namespace GPUKohonenTest
             IDataSource ds = new ColorFromTextDataSource("colors");
             IDataSource ds2 = new TimeSerieDataSource("stocks.txt", 16);
             int[] mapsize = new int [2];
-            int size = 42;
+            int size = 10;
             mapsize[0] = size;
             mapsize[1] = size;
             IMapShape ms = new SquareShape(mapsize);

@@ -24,51 +24,42 @@ namespace TestProject
             label3.Text = "Dunno lol";
             label4.Text = ParallelArrays.MaximumArrayDimensions[0].ToString() + "x" + ParallelArrays.MaximumArrayDimensions[1].ToString();
 
-            Stack<float> stack = new Stack<float>();
+            
 
-            float[] test = new float[500];
-            /*float[] kkkk = new float[10];
-            for(int j = 0; j < 10; ++j )
-                kkkk[j] = (float)j;
-            DisposableFloatParallelArray kp = new DisposableFloatParallelArray(kkkk);
-            FloatParallelArray kpk = ParallelArrays.Replicate(kp, kp.Shape[0] - 1);
-            ParallelArrays.ToArray(kpk, out test);
-            */
-
-            ParallelStack stk = new ParallelStack();
-
-            System.Diagnostics.Stopwatch perf = new System.Diagnostics.Stopwatch();
-
-            //GPU
-            for (int y = 0; y < 1; ++y)
+            for (int mwidth = 10; mwidth < 4000; mwidth += 10)
             {
-                for (float i = 0.0f; i < 1000.0f; i = i + 1.0f)
-                    stk.Push(i);
-                for (int i = 0; i < 999; ++i)
-                    stk.Pop();
-            }
-            //
 
-            //CPU
-            for (int y = 0; y < 1000; ++y)
-            {
+                float[] test = new float[mwidth];
+
+                ParallelStack stk = new ParallelStack();
+                Stack<float> stack = new Stack<float>();
+
+                System.Diagnostics.Stopwatch perf = new System.Diagnostics.Stopwatch();
+
+                //GPU
                 perf.Start();
-                for (float i = 0.0f; i < 1000.0f; i = i + 1.0f)
-                    stack.Push(i);
-                for (int i = 0; i < 999; ++i)
-                    stack.Pop();
+                    stk.PushN(test);
+                    stk.PopN(mwidth);
+                perf.Stop();
+                label10.Text = perf.ElapsedMilliseconds.ToString();
+                textBox2.Text += label10.Text + "\r\n";
+                //
+
+                perf.Reset();
+
+                //CPU
+                perf.Start();
+                    for (float i = 0.0f; i < 1000*mwidth; i = i + 1.0f)
+                        stack.Push(i);
+                    for (float i = 0.0f; i < 1000*mwidth; i = i + 1.0f)
+                        stack.Pop();
                 perf.Stop();
                 label6.Text = perf.ElapsedMilliseconds.ToString();
+                textBox1.Text += label6.Text + "\r\n";
+                //
+
+                Application.DoEvents();
             }
-            //
-
-            perf.Reset();
-
-            perf.Start();
-            ParallelArrays.ToArray(stk.GetStackArray(), out test);
-            perf.Stop();
-            label5.Text = perf.ElapsedMilliseconds.ToString();
-            
             int popopo = 45;
         }
     }

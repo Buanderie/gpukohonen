@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Research.DataParallelArrays;
+using System.Drawing;
 
 namespace AcceleratorUtils
 {
@@ -68,6 +69,41 @@ namespace AcceleratorUtils
             if (IsEmpty)
                 throw new UnexpectedOperation();
             return m_ContArray;
+        }
+
+        public void PushN(float[] Elements)
+        {
+            DisposableFloatParallelArray FPAElem = new DisposableFloatParallelArray(Elements);
+            if (IsEmpty)
+            {
+                m_ContArray = FPAElem;
+                IsEmpty = false;
+            }
+            else
+            {
+                m_ContArray = ParallelArraysUtils.Append(m_ContArray, FPAElem, 0);
+                m_ContArray = ParallelArrays.Evaluate(m_ContArray);
+            }
+        }
+
+        public FloatParallelArray PopN(int n)
+        {
+            if (IsEmpty)
+                throw new UnexpectedOperation();
+
+            if (m_ContArray.Shape[0] - n == 0)
+            {
+                IsEmpty = true;
+                return m_ContArray;
+            }
+
+            if (m_ContArray.Shape[0] - n < 0)
+                throw new UnexpectedOperation();
+
+            Slice slc = new Slice(0, m_ContArray.Shape[0] - n);
+            FloatParallelArray popelem = ParallelArrays.Section(m_ContArray, slc);
+            m_ContArray = ParallelArrays.Replicate(m_ContArray, m_ContArray.Shape[0] - n);
+            return popelem;
         }
     }
 }
